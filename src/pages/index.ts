@@ -1,0 +1,5 @@
+export { Home } from './home/home'
+export { Dashboard } from './dashboard/dashboard'
+export { CarDetails } from './carDetails/car'
+export { Auth } from './auth/auth'
+export { NewCar } from './newCar/newCar'
