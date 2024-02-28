@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import { useContexts } from "../../../contexts/useContexts";
+import { usePanelHeader } from "./usePanelHeader";
 
 
 export function PanelHeader() {
 
-  const { handleLogOut, user } = useContexts()
+  const { user } = useContexts()
+  const { logOut } = usePanelHeader()
 
   return (
     <div
@@ -15,7 +17,7 @@ export function PanelHeader() {
         <>
           <Link to="/dashboard">Dashboard</Link>
           <Link to="/newCar">Novo carro</Link>
-          <button onClick={handleLogOut} className="ml-auto">
+          <button onClick={logOut} className="ml-auto">
             Sair da conta
           </button>
         </>

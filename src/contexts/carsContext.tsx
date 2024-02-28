@@ -13,6 +13,7 @@ type CarsContextProps = {
   myCars: ListCarsProps
   handleDeletedCar: (uid: string) => Promise<void>
   handleNewCar: (car: CarsProps) => void
+  clearListCars: () => void
 }
 export const CarsContext = createContext({} as CarsContextProps)
 
@@ -63,9 +64,14 @@ export function CarsProvider({ children }: { children: ReactNode }) {
     setMyCars((cars) => [...cars, car])
   }
 
+  function clearListCars() {
+    setMyCars([])
+    setCars([])
+  }
+
 
   return (
-    <CarsContext.Provider value={{ cars, getCars, getMyCars, myCars, handleDeletedCar, handleNewCar }}>
+    <CarsContext.Provider value={{ cars, getCars, getMyCars, myCars, handleDeletedCar, handleNewCar, clearListCars }}>
       {children}
     </CarsContext.Provider>
   )

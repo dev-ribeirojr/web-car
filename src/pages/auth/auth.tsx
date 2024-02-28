@@ -4,14 +4,12 @@ import { Container } from '../../components/ui'
 import { Login, Register } from './modules'
 import { useEffect } from 'react'
 import { useAuth } from './useAuth'
-import { useContexts } from '../../contexts/useContexts'
 
 export function Auth() {
-  const { login, handleRegisterOrLogin } = useAuth()
-  const { handleLogOut } = useContexts()
+  const { login, handleRegisterOrLogin, logOut } = useAuth()
 
   useEffect(() => {
-    handleLogOut()
+    logOut()
   }, [])
 
   return (
